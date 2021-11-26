@@ -35,7 +35,7 @@ public class Day2 extends Day {
                           .map(Policy::new);
     }
 
-    public static class Policy {
+    private static class Policy {
         private final int min;
         private final int max;
         private final char letter;
@@ -44,8 +44,7 @@ public class Day2 extends Day {
         public Policy(String[] arr) {
             this.min = parseInt(arr[0]);
             this.max = parseInt(arr[1]);
-            this.letter = arr[2].replace(":", "")
-                                .charAt(0);
+            this.letter = arr[2].charAt(0);
             this.password = arr[3];
         }
 
