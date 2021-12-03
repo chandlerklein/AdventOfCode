@@ -19,7 +19,7 @@ public class Day3 extends Day {
 
     @Override
     protected Object part1() {
-        char TREE = '#';
+        final char tree = '#';
         int hits = 0;
         int x = 0;
 
@@ -29,7 +29,7 @@ public class Day3 extends Day {
             if (x >= strLen) {
                 x -= strLen;
             }
-            if (lines[i].toString().charAt(x) == TREE) {
+            if (lines[i].toString().charAt(x) == tree) {
                 hits++;
             }
         }
@@ -39,11 +39,11 @@ public class Day3 extends Day {
     @Override
     protected Object part2() {
         var slopes = List.of(
-            Pair.of(1, 1),
-            Pair.of(3, 1),
-            Pair.of(5, 1),
-            Pair.of(7, 1),
-            Pair.of(1, 2)
+                Pair.of(1, 1),
+                Pair.of(3, 1),
+                Pair.of(5, 1),
+                Pair.of(7, 1),
+                Pair.of(1, 2)
         );
         return slopes.stream()
                      .map(this::getHits)
@@ -51,7 +51,7 @@ public class Day3 extends Day {
     }
 
     private long getHits(Pair<Integer, Integer> slope) {
-        char TREE = '#';
+        final char tree = '#';
         int hits = 0;
         int x = 0;
 
@@ -61,7 +61,7 @@ public class Day3 extends Day {
             if (x >= strLen) {
                 x -= strLen;
             }
-            if (lines[i].toString().charAt(x) == TREE) {
+            if (lines[i].toString().charAt(x) == tree) {
                 hits++;
             }
         }

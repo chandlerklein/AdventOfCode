@@ -12,11 +12,11 @@ import static org.apache.commons.io.FileUtils.readFileToString;
 public abstract class Day {
     private static final String DEFAULT_DELIMITER = System.lineSeparator();
     private final String year;
-    private final String day;
+    private final String dayOfMonth;
 
-    public Day(String year, String day) {
+    protected Day(String year, String dayOfMonth) {
         this.year = year;
-        this.day = day;
+        this.dayOfMonth = dayOfMonth;
     }
 
     protected void printParts() {
@@ -32,7 +32,7 @@ public abstract class Day {
         return dayNumberStream().toArray();
     }
 
-    private LongStream dayNumberStream() {
+    protected LongStream dayNumberStream() {
         return dayStream().mapToLong(Long::parseLong);
     }
 
@@ -41,7 +41,7 @@ public abstract class Day {
     }
 
     private String day() {
-        return getResourceAsString(year + "/day" + day + ".txt");
+        return getResourceAsString(year + "/day" + dayOfMonth + ".txt");
     }
 
     private String getResourceAsString(String fileName) {
