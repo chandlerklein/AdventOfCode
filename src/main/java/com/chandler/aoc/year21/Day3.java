@@ -3,6 +3,7 @@ package com.chandler.aoc.year21;
 import com.chandler.aoc.common.Day;
 
 import static java.lang.Integer.parseInt;
+import static org.apache.commons.lang3.StringUtils.replaceChars;
 
 public class Day3 extends Day {
 
@@ -17,39 +18,30 @@ public class Day3 extends Day {
     @Override
     protected Object part1() {
         String[] strings = dayStream().toArray(String[]::new);
-        int strLength = strings[0].length();
 
         int zeroCount = 0;
-        int oneCount = 0;
         StringBuilder tempGammaRate = new StringBuilder();
-        StringBuilder tempEpsilonRate = new StringBuilder();
 
-        for (int i = 0; i < strLength; i++) {
+        for (int i = 0; i < strings[0].length(); i++) {
             for (String string : strings) {
-                if (string.charAt(i) == '0') {
-                    zeroCount++;
-                } else {
-                    oneCount++;
-                }
+                if (string.charAt(i) == '0') zeroCount++;
             }
-            if (zeroCount > oneCount) {
-                tempGammaRate.append("0");
-                tempEpsilonRate.append("1");
-            } else {
-                tempGammaRate.append("1");
-                tempEpsilonRate.append("0");
-            }
+            int oneCount = strings.length - zeroCount;
+            tempGammaRate.append(zeroCount > oneCount ? "0" : "1");
             zeroCount = 0;
-            oneCount = 0;
         }
         int gammaRate = parseInt(tempGammaRate.toString(), 2);
-        int epsilonRate = parseInt(tempEpsilonRate.toString(), 2);
-
+        int epsilonRate = parseInt(getFlippedBinary(tempGammaRate), 2);
         return gammaRate * epsilonRate;
+    }
+
+    private String getFlippedBinary(StringBuilder tempEpsilonRate) {
+        return replaceChars(tempEpsilonRate.toString(), "10", "01");
     }
 
     @Override
     protected Object part2() {
+        // nope 🤠
         return null;
     }
 
