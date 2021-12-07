@@ -5,7 +5,6 @@ import com.google.common.math.Quantiles;
 import com.google.common.math.Stats;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 @SuppressWarnings("UnstableApiUsage")
 public class Day7 extends Day {
@@ -29,10 +28,9 @@ public class Day7 extends Day {
     }
 
     private List<Integer> getCrabPositions() {
-        return Pattern.compile(",")
-                      .splitAsStream(dayString())
-                      .map(Integer::valueOf)
-                      .toList();
+        return dayStream(",")
+                .map(Integer::valueOf)
+                .toList();
     }
 
     private Long getFuelCost(List<Integer> crabPositions) {

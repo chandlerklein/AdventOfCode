@@ -5,7 +5,6 @@ import com.chandler.aoc.common.Day;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.regex.Pattern;
 
 import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
@@ -23,23 +22,23 @@ public class Day6 extends Day {
 
     @Override
     protected Object part1() {
-        List<LanternFish> lanternFish = Pattern.compile(",")
-                                               .splitAsStream(dayString())
-                                               .map(Integer::valueOf)
-                                               .map(LanternFish::new)
-                                               .collect(toList());
+        var lanternFish =
+                dayStream(",")
+                        .map(Integer::valueOf)
+                        .map(LanternFish::new)
+                        .collect(toList());
         return getFishAfterDays(lanternFish, 80);
     }
 
     @Override
     protected Object part2() {
-        TreeMap<Integer, Long> lanternFishNum = Pattern.compile(",")
-                                                       .splitAsStream(dayString())
-                                                       .collect(
-                                                               groupingBy(
-                                                                       Integer::parseInt,
-                                                                       TreeMap::new,
-                                                                       counting()));
+        TreeMap<Integer, Long> lanternFishNum =
+                dayStream(",")
+                        .collect(
+                                groupingBy(
+                                        Integer::parseInt,
+                                        TreeMap::new,
+                                        counting()));
         return getFishAfterDaysOptimized(lanternFishNum, 256);
     }
 

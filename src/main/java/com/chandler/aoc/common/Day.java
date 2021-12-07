@@ -2,8 +2,9 @@ package com.chandler.aoc.common;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
+import java.nio.charset.Charset;
 import java.util.Objects;
+import java.util.regex.Pattern;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
@@ -37,7 +38,11 @@ public abstract class Day {
     }
 
     protected Stream<String> dayStream() {
-        return Arrays.stream(dayString().split(DEFAULT_DELIMITER));
+        return Pattern.compile(DEFAULT_DELIMITER).splitAsStream(dayString());
+    }
+
+    protected Stream<String> dayStream(String delimiter) {
+        return Pattern.compile(delimiter).splitAsStream(dayString());
     }
 
     protected String dayString() {
@@ -46,7 +51,9 @@ public abstract class Day {
 
     private String getResourceAsString(String fileName) {
         try {
-            return readFileToString(new File(Objects.requireNonNull(Day.class.getClassLoader().getResource(fileName)).getFile()));
+            return readFileToString(
+                    new File(Objects.requireNonNull(Day.class.getClassLoader().getResource(fileName)).getFile()),
+                    Charset.defaultCharset());
         } catch (IOException e) {
             throw new IllegalStateException(e);
         }

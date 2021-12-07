@@ -29,7 +29,7 @@ public class Day2 extends Day {
     }
 
     public Stream<Command> getCommands() {
-        return dayStream().map(in -> in.split(" "))
+        return dayStream().map(line -> line.split(" "))
                           .map(Command::new);
     }
 
