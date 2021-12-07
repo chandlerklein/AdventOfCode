@@ -37,10 +37,10 @@ public abstract class Day {
     }
 
     protected Stream<String> dayStream() {
-        return Arrays.stream(day().split(DEFAULT_DELIMITER));
+        return Arrays.stream(dayString().split(DEFAULT_DELIMITER));
     }
 
-    private String day() {
+    protected String dayString() {
         return getResourceAsString(year + "/day" + dayOfMonth + ".txt");
     }
 
