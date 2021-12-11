@@ -6,6 +6,7 @@ import java.util.List;
 
 import static com.google.common.math.Quantiles.median;
 import static com.google.common.math.Stats.meanOf;
+import static java.lang.Math.abs;
 import static java.lang.Math.floor;
 
 @SuppressWarnings("UnstableApiUsage")
@@ -38,7 +39,7 @@ public class Day7 extends Day {
     private Long getFuelCost(List<Integer> crabPositions) {
         var median = (long) median().compute(crabPositions);
         return crabPositions.stream()
-                            .map(it -> (it > median) ? it - median : median - it)
+                            .map(it -> abs(it - median))
                             .reduce(Long::sum)
                             .orElseThrow();
     }
@@ -46,7 +47,7 @@ public class Day7 extends Day {
     private Long getFuelCostPartTwo(List<Integer> crabPositions) {
         var avg = (long) floor(meanOf(crabPositions));
         return crabPositions.stream()
-                            .map(it -> (it > avg) ? it - avg : avg - it)
+                            .map(it -> abs(it - avg))
                             .map(it -> (it * (it + 1)) / 2)
                             .reduce(Long::sum)
                             .orElseThrow();
