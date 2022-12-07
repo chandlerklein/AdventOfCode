@@ -15,24 +15,24 @@ public class Day2 extends Day {
     }
 
     private static final Map<String, String> shapeMappings = Map.of(
-            "A", "R",
-            "B", "P",
-            "C", "S",
-            "X", "R",
-            "Y", "P",
-            "Z", "S"
+        "A", "R",
+        "B", "P",
+        "C", "S",
+        "X", "R",
+        "Y", "P",
+        "Z", "S"
     );
 
     private static final Map<String, Integer> pointMap = Map.of(
-            "R", 1,
-            "P", 2,
-            "S", 3
+        "R", 1,
+        "P", 2,
+        "S", 3
     );
 
     private static final Map<String, String> strengthMap = Map.of(
-            "R", "S",
-            "P", "R",
-            "S", "P"
+        "R", "S",
+        "P", "R",
+        "S", "P"
     );
 
     @Override
