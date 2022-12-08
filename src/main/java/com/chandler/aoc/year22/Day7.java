@@ -57,11 +57,9 @@ public class Day7 extends Day {
     private long getTotalSize(Directory directory, long totalSize) {
         List<File> files = directory.files();
         for (File file : files) {
-            if (file.size() != -1L) {
-                totalSize += file.size();
-            } else {
-                totalSize += getTotalSize(directories.get(file.name()), 0L);
-            }
+            totalSize += file.size() != -1L
+                ? file.size()
+                : getTotalSize(directories.get(file.name()), 0L);
         }
         return totalSize;
     }
