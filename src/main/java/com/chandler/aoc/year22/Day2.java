@@ -6,10 +6,6 @@ import java.util.Map;
 
 public class Day2 extends Day {
 
-    public Day2() {
-        super("2022", "2");
-    }
-
     public static void main(String[] args) {
         new Day2().printParts();
     }

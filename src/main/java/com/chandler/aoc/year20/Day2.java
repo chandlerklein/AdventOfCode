@@ -10,10 +10,6 @@ import static org.apache.commons.lang3.StringUtils.countMatches;
 
 public class Day2 extends Day {
 
-    public Day2() {
-        super("2020", "2");
-    }
-
     public static void main(String[] args) {
         new Day2().printParts();
     }

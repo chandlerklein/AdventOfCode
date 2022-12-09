@@ -11,10 +11,6 @@ import static java.lang.Character.isUpperCase;
 
 public class Day3 extends Day {
 
-    public Day3() {
-        super("2022", "3");
-    }
-
     public static void main(String[] args) {
         new Day3().printParts();
     }

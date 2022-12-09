@@ -13,10 +13,6 @@ import static com.chandler.aoc.year21.Day4.BingoGame.BOARD_SIZE;
 
 public class Day4 extends Day {
 
-    public Day4() {
-        super("2021", "4");
-    }
-
     public static void main(String[] args) {
         new Day4().printParts();
     }

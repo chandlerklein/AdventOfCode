@@ -10,10 +10,6 @@ import static java.lang.String.valueOf;
 
 public class Day8 extends Day {
 
-    public Day8() {
-        super("2022", "8");
-    }
-
     public static void main(String[] args) {
         new Day8().printParts();
     }

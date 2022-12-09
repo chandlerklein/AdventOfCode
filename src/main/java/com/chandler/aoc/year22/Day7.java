@@ -11,10 +11,6 @@ import static java.lang.Long.parseLong;
 
 public class Day7 extends Day {
 
-    public Day7() {
-        super("2022", "7");
-    }
-
     public static void main(String[] args) {
         new Day7().printParts();
     }

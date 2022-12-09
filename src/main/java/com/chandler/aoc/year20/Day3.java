@@ -9,10 +9,6 @@ public class Day3 extends Day {
 
     private final Object[] lines = dayStream().toArray();
 
-    public Day3() {
-        super("2020", "3");
-    }
-
     public static void main(String[] args) {
         new Day3().printParts();
     }
@@ -39,11 +35,11 @@ public class Day3 extends Day {
     @Override
     protected Object part2() {
         var slopes = List.of(
-                Pair.of(1, 1),
-                Pair.of(3, 1),
-                Pair.of(5, 1),
-                Pair.of(7, 1),
-                Pair.of(1, 2)
+            Pair.of(1, 1),
+            Pair.of(3, 1),
+            Pair.of(5, 1),
+            Pair.of(7, 1),
+            Pair.of(1, 2)
         );
         return slopes.stream()
                      .map(this::getHits)

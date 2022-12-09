@@ -6,9 +6,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Day6 extends Day {
-    public Day6() {
-        super("2022", "6");
-    }
 
     public static void main(String[] args) {
         new Day6().printParts();

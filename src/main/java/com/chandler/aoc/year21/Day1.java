@@ -4,10 +4,6 @@ import com.chandler.aoc.common.Day;
 
 public class Day1 extends Day {
 
-    public Day1() {
-        super("2021", "1");
-    }
-
     public static void main(String[] args) {
         new Day1().printParts();
     }

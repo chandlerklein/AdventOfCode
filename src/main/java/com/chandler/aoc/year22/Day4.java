@@ -6,10 +6,6 @@ import static java.lang.Integer.parseInt;
 
 public class Day4 extends Day {
 
-    public Day4() {
-        super("2022", "4");
-    }
-
     public static void main(String[] args) {
         new Day4().printParts();
     }

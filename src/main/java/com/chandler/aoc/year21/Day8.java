@@ -9,10 +9,6 @@ public class Day8 extends Day {
 
     private static final Set<Integer> uniqueSegmentCounts = Set.of(2, 3, 4, 7);
 
-    protected Day8() {
-        super("2021", "8");
-    }
-
     public static void main(String[] args) {
         new Day8().printParts();
     }

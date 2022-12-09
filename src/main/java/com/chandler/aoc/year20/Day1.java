@@ -9,10 +9,6 @@ import java.util.Set;
 
 public class Day1 extends Day {
 
-    public Day1() {
-        super("2020", "1");
-    }
-
     public static void main(String[] args) {
         new Day1().printParts();
     }

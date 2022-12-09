@@ -10,10 +10,6 @@ import java.util.stream.IntStream;
 
 public class Day1 extends Day {
 
-    public Day1() {
-        super("2022", "1");
-    }
-
     public static void main(String[] args) {
         new Day1().printParts();
     }

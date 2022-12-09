@@ -7,10 +7,6 @@ import static org.apache.commons.lang3.StringUtils.replaceChars;
 
 public class Day3 extends Day {
 
-    public Day3() {
-        super("2021", "3");
-    }
-
     public static void main(String[] args) {
         new Day3().printParts();
     }

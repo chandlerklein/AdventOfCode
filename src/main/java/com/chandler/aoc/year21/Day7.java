@@ -12,10 +12,6 @@ import static java.lang.Math.floor;
 @SuppressWarnings("UnstableApiUsage")
 public class Day7 extends Day {
 
-    protected Day7() {
-        super("2021", "7");
-    }
-
     public static void main(String[] args) {
         new Day7().printParts();
     }

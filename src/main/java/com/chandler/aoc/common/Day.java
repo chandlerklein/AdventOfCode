@@ -1,26 +1,19 @@
 package com.chandler.aoc.common;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.util.Objects;
 import java.util.regex.Pattern;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
+import static java.nio.charset.Charset.defaultCharset;
+import static java.util.Objects.requireNonNull;
 import static org.apache.commons.io.FileUtils.readFileToString;
 
 public abstract class Day {
     private static final String DEFAULT_DELIMITER = System.lineSeparator();
-    private final String year;
-    private final String dayOfMonth;
+    private boolean isExample = false;
 
-    protected Day(String year, String dayOfMonth) {
-        this.year = year;
-        this.dayOfMonth = dayOfMonth;
-    }
-
-    protected void printParts() {
+    public void printParts() {
         System.out.println("Part 1: " + part1());
         System.out.println("Part 2: " + part2());
     }
@@ -46,17 +39,26 @@ public abstract class Day {
     }
 
     protected String dayString() {
-        return getResourceAsString(year + "/day" + dayOfMonth + ".txt");
+        String className = this.getClass().toString();
+        String year = "20%s".formatted(className.substring(27, 29));
+        String day = "%s%s".formatted(className.substring(30).toLowerCase(), isExample ? "-example" : "");
+        String fileName = "%s/%s.txt".formatted(year, day);
+        return getResourceAsString(fileName);
     }
 
     private String getResourceAsString(String fileName) {
         try {
             return readFileToString(
-                    new File(Objects.requireNonNull(Day.class.getClassLoader().getResource(fileName)).getFile()),
-                    Charset.defaultCharset());
-        } catch (IOException e) {
-            throw new IllegalStateException(e);
+                new File(requireNonNull(Day.class.getClassLoader().getResource(fileName)).getFile()),
+                defaultCharset()
+            );
+        } catch (Exception e) {
+            throw new IllegalStateException("Unable to retrieve file: %s".formatted(fileName), e);
         }
     }
 
+    protected Day isExample() {
+        this.isExample = true;
+        return this;
+    }
 }

@@ -12,10 +12,6 @@ import static java.lang.Math.signum;
 
 public class Day5 extends Day {
 
-    public Day5() {
-        super("2021", "5");
-    }
-
     public static void main(String[] args) {
         new Day5().printParts();
     }

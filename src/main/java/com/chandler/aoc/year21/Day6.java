@@ -12,10 +12,6 @@ import static java.util.stream.Collectors.toList;
 
 public class Day6 extends Day {
 
-    protected Day6() {
-        super("2021", "6");
-    }
-
     public static void main(String[] args) {
         new Day6().printParts();
     }

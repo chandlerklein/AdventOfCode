@@ -18,10 +18,6 @@ public class Day10 extends Day {
     private final Map<Character, Integer> completionScores =
             Map.of('(', 1, '[', 2, '{', 3, '<', 4);
 
-    protected Day10() {
-        super("2021", "10");
-    }
-
     public static void main(String[] args) {
         new Day10().printParts();
     }

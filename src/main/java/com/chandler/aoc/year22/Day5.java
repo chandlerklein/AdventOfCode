@@ -15,9 +15,6 @@ import static java.util.function.Predicate.not;
 import static java.util.stream.Collectors.toCollection;
 
 public class Day5 extends Day {
-    public Day5() {
-        super("2022", "5");
-    }
 
     public static void main(String[] args) {
         new Day5().printParts();
