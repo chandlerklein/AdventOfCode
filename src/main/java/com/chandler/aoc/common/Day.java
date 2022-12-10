@@ -14,8 +14,12 @@ public abstract class Day {
     private boolean isExample = false;
 
     public void printParts() {
-        System.out.println("Part 1: " + part1());
-        System.out.println("Part 2: " + part2());
+        if (part1() != null) {
+            System.out.printf("Part 1: %n%s%n", part1());
+        }
+        if (part2() != null) {
+            System.out.printf("Part 2: %n%s%n", part2());
+        }
     }
 
     protected abstract Object part1();
