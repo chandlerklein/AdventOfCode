@@ -2,11 +2,9 @@ package com.chandler.aoc.year22;
 
 import com.chandler.aoc.common.Day;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
-import static java.lang.Character.getNumericValue;
+import static java.lang.Integer.parseInt;
 import static java.lang.Math.abs;
 
 public class Day9 extends Day {
@@ -32,11 +30,10 @@ public class Day9 extends Day {
 
         for (String line : input) {
             int[] direction = directions.get(line.charAt(0));
-            int numMoves = getNumericValue(line.charAt(2));
+            int numMoves = parseInt(line.substring(2));
 
             for (int i = 0; i < numMoves; i++) {
-                int tempHeadRow = head[0];
-                int tempHeadCol = head[1];
+                int[] tempHead = new int[]{head[0], head[1]};
 
                 head[0] += direction[0];
                 head[1] += direction[1];
@@ -46,8 +43,8 @@ public class Day9 extends Day {
                         tail[0] += direction[0];
                         tail[1] += direction[1];
                     } else {
-                        tail[0] = tempHeadRow;
-                        tail[1] = tempHeadCol;
+                        tail[0] = tempHead[0];
+                        tail[1] = tempHead[1];
                     }
                     points.add(new Point(tail[0], tail[1]));
                 }
@@ -71,3 +68,4 @@ public class Day9 extends Day {
         return null;
     }
 }
+
