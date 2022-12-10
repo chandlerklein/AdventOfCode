@@ -34,9 +34,7 @@ public class Day10 extends Day {
         }
         return partition(characters, 40)
                 .stream()
-                .map(chars -> chars.stream()
-                                   .map(String::valueOf)
-                                   .collect(joining()))
+                .map(chars -> chars.stream().map(String::valueOf).collect(joining()))
                 .collect(joining("\n"));
     }
 
