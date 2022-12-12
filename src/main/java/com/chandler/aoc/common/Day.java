@@ -11,14 +11,16 @@ import static org.apache.commons.io.FileUtils.readFileToString;
 
 public abstract class Day {
     private static final String DEFAULT_DELIMITER = System.lineSeparator();
-    private boolean isExample = false;
 
     public void printParts() {
-        if (part1() != null) {
-            System.out.printf("Part 1: %n%s%n", part1());
+        Object part1Result = part1();
+        Object part2Result = part2();
+
+        if (part1Result != null) {
+            System.out.printf("Part 1: %n%s%n", part1Result);
         }
-        if (part2() != null) {
-            System.out.printf("Part 2: %n%s%n", part2());
+        if (part2Result != null) {
+            System.out.printf("Part 2: %n%s%n", part2Result);
         }
     }
 
@@ -45,7 +47,15 @@ public abstract class Day {
     protected String dayString() {
         String className = this.getClass().toString();
         String year = "20%s".formatted(className.substring(27, 29));
-        String day = "%s%s".formatted(className.substring(30).toLowerCase(), isExample ? "-example" : "");
+        String day = className.substring(30).toLowerCase();
+        String fileName = "%s/%s.txt".formatted(year, day);
+        return getResourceAsString(fileName);
+    }
+
+    protected String exampleDayString() {
+        String className = this.getClass().toString();
+        String year = "20%s".formatted(className.substring(27, 29));
+        String day = "%s%s".formatted(className.substring(30).toLowerCase(), "-example");
         String fileName = "%s/%s.txt".formatted(year, day);
         return getResourceAsString(fileName);
     }
@@ -59,10 +69,5 @@ public abstract class Day {
         } catch (Exception e) {
             throw new IllegalStateException("Unable to retrieve file: %s".formatted(fileName), e);
         }
-    }
-
-    protected Day isExample() {
-        this.isExample = true;
-        return this;
     }
 }
