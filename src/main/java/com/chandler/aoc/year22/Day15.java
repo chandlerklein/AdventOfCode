@@ -2,6 +2,7 @@ package com.chandler.aoc.year22;
 
 import com.chandler.aoc.common.Day;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -17,35 +18,59 @@ public class Day15 extends Day {
         new Day15().printParts();
     }
 
-    private record Sensor(int x, int y, int distance) {}
+    private boolean isPartOne;
 
+    private record Sensor(int x, int y, int distance) {}
 
     @Override
     protected Object part1() {
-        Set<Sensor> noBeaconPresent = new HashSet<>();
+        this.isPartOne = true;
+        Set<Sensor> noBeaconsPresent = new HashSet<>();
         List<Sensor> sensors = new ArrayList<>();
 
-        String[] lines = exampleDayString().split("\r\n");
+        String[] lines = dayString().split("\r\n");
 
-        parseInput(lines, sensors, noBeaconPresent);
+        parseInput(lines, sensors, noBeaconsPresent);
 
-        for (Sensor sensor : sensors) {
-            System.out.println(sensor);
-        }
+        int yRow = 2_000_000;
+        setHashes(noBeaconsPresent, sensors, yRow);
 
-        return null;
+        return noBeaconsPresent.stream().filter(point -> point.y == yRow).count();
     }
 
-    private void parseInput(String[] lines, List<Sensor> sensors, Set<Sensor> noBeaconPresent) {
+    private static void setHashes(Set<Sensor> noBeaconsPresent, List<Sensor> sensors, int yRow) {
+        for (Sensor sensor : sensors) {
+            int yDiff = abs(sensor.y() - yRow);
+            int numHashesInYRow = (2 * sensor.distance() + 1) - (2 * yDiff);
+            if (numHashesInYRow > 0) {
+                if (numHashesInYRow == 1) {
+                    Sensor notBeacon = new Sensor(sensor.x(), yRow, -1);
+                    noBeaconsPresent.add(notBeacon);
+                }
+                int offSetSize = (numHashesInYRow - 1) / 2;
+                for (int i = sensor.x() - offSetSize; i < sensor.x() + offSetSize; i++) {
+                    Sensor notBeacon = new Sensor(i, yRow, -1);
+                    noBeaconsPresent.add(notBeacon);
+                }
+            }
+        }
+    }
+
+    private void parseInput(String[] lines, List<Sensor> sensors, Set<Sensor> noBeaconsPresent) {
         for (String line : lines) {
             Pattern.compile("x=(-?\\d+), y=(-?\\d+).*x=(-?\\d+), y=(-?\\d+)")
                    .matcher(line)
                    .results()
                    .forEach(mr -> {
-                       Sensor sensor = new Sensor(parseInt(mr.group(1)), parseInt(mr.group(2)), abs(parseInt(mr.group(1)) - parseInt(mr.group(3))) + abs(parseInt(mr.group(2)) - parseInt(mr.group(4))));
-                       Sensor beacon = new Sensor(parseInt(mr.group(3)), parseInt(mr.group(4)), -1);
+                       int x1 = parseInt(mr.group(1));
+                       int y1 = parseInt(mr.group(2));
+                       int x2 = parseInt(mr.group(3));
+                       int y2 = parseInt(mr.group(4));
+                       int distance = abs(x1 - x2) + abs(y1 - y2);
+                       Sensor sensor = new Sensor(x1, y1, distance);
+                       Sensor beacon = new Sensor(x2, y2, distance);
                        sensors.add(sensor);
-                       noBeaconPresent.addAll(List.of(sensor, beacon));
+                       noBeaconsPresent.addAll(List.of(sensor, beacon));
                    });
         }
     }
@@ -54,4 +79,5 @@ public class Day15 extends Day {
     protected Object part2() {
         return null;
     }
+
 }
