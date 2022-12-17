@@ -5,10 +5,10 @@ import com.chandler.aoc.common.Day;
 import static java.lang.Integer.parseInt;
 import static org.apache.commons.lang3.StringUtils.replaceChars;
 
-public class Day3 extends Day {
+public class Day03 extends Day {
 
     public static void main(String[] args) {
-        new Day3().printParts();
+        new Day03().printParts();
     }
 
     @Override

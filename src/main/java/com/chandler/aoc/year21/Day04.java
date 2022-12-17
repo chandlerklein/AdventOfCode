@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-import static com.chandler.aoc.year21.Day4.BingoGame.BOARD_SIZE;
+import static com.chandler.aoc.year21.Day04.BingoGame.BOARD_SIZE;
 
-public class Day4 extends Day {
+public class Day04 extends Day {
 
     public static void main(String[] args) {
-        new Day4().printParts();
+        new Day04().printParts();
     }
 
     @Override

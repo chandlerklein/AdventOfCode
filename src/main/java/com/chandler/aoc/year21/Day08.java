@@ -5,12 +5,12 @@ import com.chandler.aoc.common.Day;
 import java.util.Arrays;
 import java.util.Set;
 
-public class Day8 extends Day {
+public class Day08 extends Day {
 
     private static final Set<Integer> uniqueSegmentCounts = Set.of(2, 3, 4, 7);
 
     public static void main(String[] args) {
-        new Day8().printParts();
+        new Day08().printParts();
     }
 
     @Override

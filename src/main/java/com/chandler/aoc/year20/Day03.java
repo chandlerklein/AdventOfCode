@@ -5,12 +5,12 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.List;
 
-public class Day3 extends Day {
+public class Day03 extends Day {
 
     private final Object[] lines = dayStream().toArray();
 
     public static void main(String[] args) {
-        new Day3().printParts();
+        new Day03().printParts();
     }
 
     @Override

@@ -4,10 +4,10 @@ import com.chandler.aoc.common.Day;
 
 import static java.lang.Integer.parseInt;
 
-public class Day4 extends Day {
+public class Day04 extends Day {
 
     public static void main(String[] args) {
-        new Day4().printParts();
+        new Day04().printParts();
     }
 
     private record Assignment(int elf1Start, int elf1End, int elf2Start, int elf2End) {

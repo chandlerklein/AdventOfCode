@@ -5,10 +5,10 @@ import com.chandler.aoc.common.Day;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Day6 extends Day {
+public class Day06 extends Day {
 
     public static void main(String[] args) {
-        new Day6().printParts();
+        new Day06().printParts();
     }
 
     private Object getStartOfMessageMarker(int n) {

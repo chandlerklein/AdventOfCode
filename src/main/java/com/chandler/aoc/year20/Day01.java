@@ -7,10 +7,10 @@ import java.util.HashSet;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
-public class Day1 extends Day {
+public class Day01 extends Day {
 
     public static void main(String[] args) {
-        new Day1().printParts();
+        new Day01().printParts();
     }
 
     @Override

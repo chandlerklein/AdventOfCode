@@ -9,10 +9,10 @@ import java.util.Set;
 
 import static java.lang.Character.isUpperCase;
 
-public class Day3 extends Day {
+public class Day03 extends Day {
 
     public static void main(String[] args) {
-        new Day3().printParts();
+        new Day03().printParts();
     }
 
     private record Rucksack(Set<String> compartment1, Set<String> compartment2) {

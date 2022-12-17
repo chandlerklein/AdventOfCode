@@ -8,10 +8,10 @@ import java.util.List;
 import static java.lang.Integer.parseInt;
 import static java.lang.String.valueOf;
 
-public class Day8 extends Day {
+public class Day08 extends Day {
 
     public static void main(String[] args) {
-        new Day8().printParts();
+        new Day08().printParts();
     }
 
     private static final int[][] DIRECTIONS = new int[][]{ { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };

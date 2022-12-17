@@ -10,10 +10,10 @@ import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 
-public class Day6 extends Day {
+public class Day06 extends Day {
 
     public static void main(String[] args) {
-        new Day6().printParts();
+        new Day06().printParts();
     }
 
     @Override

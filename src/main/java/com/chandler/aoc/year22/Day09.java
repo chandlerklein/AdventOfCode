@@ -7,10 +7,10 @@ import java.util.*;
 import static java.lang.Integer.parseInt;
 import static java.lang.Math.abs;
 
-public class Day9 extends Day {
+public class Day09 extends Day {
 
     public static void main(String[] args) {
-        new Day9().printParts();
+        new Day09().printParts();
     }
 
     private static final Map<Character, int[]> directions = Map.of(

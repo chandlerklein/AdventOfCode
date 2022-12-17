@@ -10,10 +10,10 @@ import static java.lang.Integer.parseInt;
 import static java.lang.Math.abs;
 import static java.lang.Math.signum;
 
-public class Day5 extends Day {
+public class Day05 extends Day {
 
     public static void main(String[] args) {
-        new Day5().printParts();
+        new Day05().printParts();
     }
 
     @Override

@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.stream.IntStream;
 
-public class Day1 extends Day {
+public class Day01 extends Day {
 
     public static void main(String[] args) {
-        new Day1().printParts();
+        new Day01().printParts();
     }
 
     @Override

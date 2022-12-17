@@ -2,10 +2,10 @@ package com.chandler.aoc.year21;
 
 import com.chandler.aoc.common.Day;
 
-public class Day1 extends Day {
+public class Day01 extends Day {
 
     public static void main(String[] args) {
-        new Day1().printParts();
+        new Day01().printParts();
     }
 
     @Override

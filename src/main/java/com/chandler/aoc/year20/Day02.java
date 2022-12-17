@@ -8,10 +8,10 @@ import static java.lang.Integer.parseInt;
 import static org.apache.commons.lang3.Range.between;
 import static org.apache.commons.lang3.StringUtils.countMatches;
 
-public class Day2 extends Day {
+public class Day02 extends Day {
 
     public static void main(String[] args) {
-        new Day2().printParts();
+        new Day02().printParts();
     }
 
     @Override

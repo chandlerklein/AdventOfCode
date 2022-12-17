@@ -4,10 +4,10 @@ import com.chandler.aoc.common.Day;
 
 import java.util.stream.Stream;
 
-public class Day2 extends Day {
+public class Day02 extends Day {
 
     public static void main(String[] args) {
-        new Day2().printParts();
+        new Day02().printParts();
     }
 
     @Override

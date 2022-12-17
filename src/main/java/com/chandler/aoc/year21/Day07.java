@@ -10,10 +10,10 @@ import static java.lang.Math.abs;
 import static java.lang.Math.floor;
 
 @SuppressWarnings("UnstableApiUsage")
-public class Day7 extends Day {
+public class Day07 extends Day {
 
     public static void main(String[] args) {
-        new Day7().printParts();
+        new Day07().printParts();
     }
 
     @Override
