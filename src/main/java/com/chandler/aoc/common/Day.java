@@ -44,6 +44,10 @@ public abstract class Day {
         return Pattern.compile(delimiter).splitAsStream(dayString());
     }
 
+    protected Stream<String> exampleDayStream() {
+        return Pattern.compile(DEFAULT_DELIMITER).splitAsStream(exampleDayString());
+    }
+
     protected String dayString() {
         String className = this.getClass().toString();
         String year = "20%s".formatted(className.substring(27, 29));
