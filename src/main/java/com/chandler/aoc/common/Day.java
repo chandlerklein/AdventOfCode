@@ -1,77 +1,91 @@
 package com.chandler.aoc.common;
 
+import com.google.common.io.ByteStreams;
+
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.regex.Pattern;
-import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
+import static com.google.common.io.Files.asCharSource;
+import static java.lang.Integer.parseInt;
 import static java.nio.charset.Charset.defaultCharset;
-import static java.util.Objects.requireNonNull;
-import static org.apache.commons.io.FileUtils.readFileToString;
 
 public abstract class Day {
-    private static final String DEFAULT_DELIMITER = System.lineSeparator();
 
-    public void printParts() {
+    public void run() {
         Object part1Result = part1();
         Object part2Result = part2();
 
-        if (part1Result != null) {
-            System.out.printf("Part 1: %n%s%n", part1Result);
+        System.out.println(part1Result == null ? "PART 1 - UNCOMPLETED" : "PART 1: %n%s%n".formatted(part1Result));
+        System.out.println(part2Result == null ? "PART 2 - UNCOMPLETED" : "PART 2: %n%s%n".formatted(part2Result));
+    }
+
+    protected Object part1() { return null; }
+
+    protected Object part2() { return null; }
+
+    public Stream<String> stream() {
+        return Arrays.stream(string().split("\n"));
+    }
+
+    public Stream<String> stream(String delimiter) {
+        return Pattern.compile(delimiter).splitAsStream(string());
+    }
+
+    public String string() {
+        int[] yearDay = getYearDay();
+        int year = yearDay[0];
+        int day = yearDay[1];
+
+        String filename = "%d-%02d.txt".formatted(year, day);
+
+        String cookie = getFileString("cookie.txt");
+
+        Path filePath = Path.of("src/main/resources/%s".formatted(filename));
+
+        if (Files.exists(filePath)) {
+            return getFileString(filename);
         }
-        if (part2Result != null) {
-            System.out.printf("Part 2: %n%s%n", part2Result);
-        }
-    }
 
-    protected abstract Object part1();
-
-    protected abstract Object part2();
-
-    protected long[] dayNumbers() {
-        return dayNumberStream().toArray();
-    }
-
-    protected LongStream dayNumberStream() {
-        return dayStream().mapToLong(Long::parseLong);
-    }
-
-    protected Stream<String> dayStream() {
-        return Pattern.compile(DEFAULT_DELIMITER).splitAsStream(dayString());
-    }
-
-    protected Stream<String> dayStream(String delimiter) {
-        return Pattern.compile(delimiter).splitAsStream(dayString());
-    }
-
-    protected Stream<String> exampleDayStream() {
-        return Pattern.compile(DEFAULT_DELIMITER).splitAsStream(exampleDayString());
-    }
-
-    protected String dayString() {
-        String className = this.getClass().toString();
-        String year = "20%s".formatted(className.substring(27, 29));
-        String day = className.substring(30).toLowerCase();
-        String fileName = "%s/%s.txt".formatted(year, day);
-        return getResourceAsString(fileName);
-    }
-
-    protected String exampleDayString() {
-        String className = this.getClass().toString();
-        String year = "20%s".formatted(className.substring(27, 29));
-        String day = "%s%s".formatted(className.substring(30).toLowerCase(), "-example");
-        String fileName = "%s/%s.txt".formatted(year, day);
-        return getResourceAsString(fileName);
-    }
-
-    private String getResourceAsString(String fileName) {
         try {
-            return readFileToString(
-                new File(requireNonNull(Day.class.getClassLoader().getResource(fileName)).getFile()),
-                defaultCharset()
-            );
+            URL url = new URL("https://adventofcode.com/%d/day/%d/input".formatted(year, day));
+
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("Content-Type", "text/plain");
+            connection.setRequestProperty("Cookie", "session=%s".formatted(cookie));
+
+            try (InputStream inputStream = connection.getInputStream()) {
+                ByteStreams.copy(inputStream, new FileOutputStream(filePath.toFile()));
+            }
+            return getFileString(filename);
         } catch (Exception e) {
-            throw new IllegalStateException("Unable to retrieve file: %s".formatted(fileName), e);
+            throw new RuntimeException();
         }
     }
+
+    private static String getFileString(String filename) {
+        try {
+            return asCharSource(new File("src/main/resources/%s".formatted(filename)), defaultCharset()).read();
+        } catch (IOException e) {
+            throw new RuntimeException("Could not read file");
+        }
+    }
+
+    private int[] getYearDay() {
+        String className = this.getClass().toString();
+
+        return new int[]{
+            parseInt("20%s".formatted(className.substring(27, 29))),
+            parseInt(className.substring(33).toLowerCase()) };
+    }
+
 }

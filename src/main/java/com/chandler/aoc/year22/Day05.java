@@ -17,14 +17,14 @@ import static java.util.stream.Collectors.toCollection;
 public class Day05 extends Day {
 
     public static void main(String[] args) {
-        new Day05().printParts();
+        new Day05().run();
     }
 
     @Override
     protected Object part1() {
         List<Deque<Character>> deques = new ArrayList<>();
 
-        String[] lines = dayString().split("\r\n");
+        String[] lines = string().split("\r\n");
         for (int i = 0; i < lines.length; i++) {
             String line = lines[i];
             if (line.startsWith(" 1")) {
@@ -100,7 +100,7 @@ public class Day05 extends Day {
     protected Object part2() {
         List<Deque<Character>> deques = new ArrayList<>();
 
-        String[] lines = dayString().split("\r\n");
+        String[] lines = string().split("\r\n");
         for (int i = 0; i < lines.length; i++) {
             String line = lines[i];
             if (line.startsWith(" 1")) {

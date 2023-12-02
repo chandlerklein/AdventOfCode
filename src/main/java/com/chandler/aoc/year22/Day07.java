@@ -12,7 +12,7 @@ import static java.lang.Long.parseLong;
 public class Day07 extends Day {
 
     public static void main(String[] args) {
-        new Day07().printParts();
+        new Day07().run();
     }
 
     private final Map<String, Directory> directories = new HashMap<>();
@@ -25,7 +25,7 @@ public class Day07 extends Day {
 
     @Override
     protected Object part1() {
-        String[] lines = dayString().split("\r\n");
+        String[] lines = string().split("\r\n");
 
         processInput(lines);
 
@@ -87,7 +87,7 @@ public class Day07 extends Day {
 
     @Override
     protected Object part2() {
-        String[] lines = dayString().split("\r\n");
+        String[] lines = string().split("\r\n");
         directories.clear();
 
         processInput(lines);

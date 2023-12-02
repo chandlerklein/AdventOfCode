@@ -13,13 +13,13 @@ import static java.util.stream.Collectors.toList;
 public class Day06 extends Day {
 
     public static void main(String[] args) {
-        new Day06().printParts();
+        new Day06().run();
     }
 
     @Override
     protected Object part1() {
         var lanternFish =
-                dayStream(",")
+                stream(",")
                         .map(Integer::valueOf)
                         .map(LanternFish::new)
                         .collect(toList());
@@ -29,7 +29,7 @@ public class Day06 extends Day {
     @Override
     protected Object part2() {
         TreeMap<Integer, Long> lanternFishNum =
-                dayStream(",")
+                stream(",")
                         .collect(
                                 groupingBy(
                                         Integer::parseInt,

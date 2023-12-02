@@ -16,10 +16,10 @@ import static java.lang.String.format;
 public class Day12 extends Day {
 
     public static void main(String[] args) {
-        new Day12().printParts();
+        new Day12().run();
     }
 
-    private final List<char[]> map = Arrays.stream(dayString().split("\r\n")).map(String::toCharArray).toList();
+    private final List<char[]> map = Arrays.stream(string().split("\r\n")).map(String::toCharArray).toList();
     private final Set<String> visited = new HashSet<>();
 
     @Override

@@ -11,14 +11,14 @@ import static java.lang.String.valueOf;
 public class Day08 extends Day {
 
     public static void main(String[] args) {
-        new Day08().printParts();
+        new Day08().run();
     }
 
     private static final int[][] DIRECTIONS = new int[][]{ { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
 
     @Override
     protected Object part1() {
-        String[] lines = dayString().split("\r\n");
+        String[] lines = string().split("\r\n");
         int numberVisible = 0;
 
         int rows = lines.length;
@@ -58,7 +58,7 @@ public class Day08 extends Day {
 
     @Override
     protected Object part2() {
-        String[] lines = dayString().split("\r\n");
+        String[] lines = string().split("\r\n");
         int maxScore = -1;
 
         int rows = lines.length;

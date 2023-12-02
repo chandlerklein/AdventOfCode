@@ -11,7 +11,7 @@ import static org.apache.commons.lang3.StringUtils.countMatches;
 public class Day02 extends Day {
 
     public static void main(String[] args) {
-        new Day02().printParts();
+        new Day02().run();
     }
 
     @Override
@@ -27,7 +27,7 @@ public class Day02 extends Day {
     }
 
     private Stream<Policy> getPolicies() {
-        return dayStream().map(str -> str.split("[- ]"))
+        return stream().map(str -> str.split("[- ]"))
                           .map(Policy::new);
     }
 

@@ -14,7 +14,7 @@ import static com.chandler.aoc.year21.Day04.BingoGame.BOARD_SIZE;
 public class Day04 extends Day {
 
     public static void main(String[] args) {
-        new Day04().printParts();
+        new Day04().run();
     }
 
     @Override
@@ -28,7 +28,7 @@ public class Day04 extends Day {
     }
 
     public BingoGame getBingoGame() {
-        var lines = dayStream().toList();
+        var lines = stream().toList();
 
         var game = new BingoGame();
         game.setDrawNumbers(lines.get(0));

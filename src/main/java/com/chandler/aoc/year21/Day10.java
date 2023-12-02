@@ -19,18 +19,18 @@ public class Day10 extends Day {
             Map.of('(', 1, '[', 2, '{', 3, '<', 4);
 
     public static void main(String[] args) {
-        new Day10().printParts();
+        new Day10().run();
     }
 
     @Override
     protected Object part1() {
-        return dayStream().map(line -> getScore(line, true)).mapToLong(l -> l)
+        return stream().map(line -> getScore(line, true)).mapToLong(l -> l)
                           .sum();
     }
 
     @Override
     protected Object part2() {
-        List<Long> scores = dayStream().map(line -> getScore(line, false))
+        List<Long> scores = stream().map(line -> getScore(line, false))
                                        .filter(Objects::nonNull)
                                        .sorted()
                                        .toList();

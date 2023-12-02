@@ -10,7 +10,7 @@ import static java.lang.Math.abs;
 public class Day09 extends Day {
 
     public static void main(String[] args) {
-        new Day09().printParts();
+        new Day09().run();
     }
 
     private static final Map<Character, int[]> directions = Map.of(
@@ -22,7 +22,7 @@ public class Day09 extends Day {
 
     @Override
     protected Object part1() {
-        String[] input = dayString().split("\r\n");
+        String[] input = string().split("\r\n");
 
         int[] head = new int[]{0, 0};
         int[] tail = new int[]{0, 0};

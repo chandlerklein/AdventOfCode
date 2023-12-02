@@ -7,7 +7,7 @@ import static java.lang.Integer.parseInt;
 public class Day04 extends Day {
 
     public static void main(String[] args) {
-        new Day04().printParts();
+        new Day04().run();
     }
 
     private record Assignment(int elf1Start, int elf1End, int elf2Start, int elf2End) {
@@ -32,14 +32,14 @@ public class Day04 extends Day {
 
     @Override
     protected Object part1() {
-        return dayStream().map(Assignment::new)
+        return stream().map(Assignment::new)
                           .filter(Assignment::doesOverlapPart1)
                           .count();
     }
 
     @Override
     protected Object part2() {
-        return dayStream().map(Assignment::new)
+        return stream().map(Assignment::new)
                           .filter(Assignment::doesOverlapPart2)
                           .count();
     }

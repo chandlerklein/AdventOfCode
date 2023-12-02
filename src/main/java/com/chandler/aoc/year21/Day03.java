@@ -8,12 +8,12 @@ import static org.apache.commons.lang3.StringUtils.replaceChars;
 public class Day03 extends Day {
 
     public static void main(String[] args) {
-        new Day03().printParts();
+        new Day03().run();
     }
 
     @Override
     protected Object part1() {
-        String[] strings = dayStream().toArray(String[]::new);
+        String[] strings = stream().toArray(String[]::new);
 
         int zeroCount = 0;
         StringBuilder tempGammaRate = new StringBuilder();

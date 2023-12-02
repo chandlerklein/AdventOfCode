@@ -10,12 +10,12 @@ import java.util.Set;
 public class Day01 extends Day {
 
     public static void main(String[] args) {
-        new Day01().printParts();
+        new Day01().run();
     }
 
     @Override
     protected Object part1() {
-        long[] nums = dayNumbers();
+        long[] nums = stream().mapToLong(Long::parseLong).toArray();
         return Arrays.stream(nums)
                      .flatMap(a -> Arrays.stream(nums)
                                          .filter(b -> a + b == 2020L)
@@ -26,7 +26,7 @@ public class Day01 extends Day {
 
     @Override
     protected Object part2() {
-        long[] nums = dayNumbers();
+        long[] nums = stream().mapToLong(Long::parseLong).toArray();
         int target = 2020;
 
         for (int i = 0; i < nums.length; i++) {

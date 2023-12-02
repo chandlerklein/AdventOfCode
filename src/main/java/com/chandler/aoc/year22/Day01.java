@@ -11,14 +11,14 @@ import java.util.stream.IntStream;
 public class Day01 extends Day {
 
     public static void main(String[] args) {
-        new Day01().printParts();
+        new Day01().run();
     }
 
     @Override
     protected Object part1() {
         List<Integer> totalItems = new ArrayList<>();
         int currentAmount = 0;
-        for (String line : dayString().replace("\r", "").split("\n")) {
+        for (String line : string().replace("\r", "").split("\n")) {
             if (line.isBlank()) {
                 totalItems.add(currentAmount);
                 currentAmount = 0;
@@ -36,7 +36,7 @@ public class Day01 extends Day {
     protected Object part2() {
         PriorityQueue<Integer> totalItems = new PriorityQueue<>(Collections.reverseOrder());
         int currentAmount = 0;
-        for (String line : dayString().replace("\r", "").split("\n")) {
+        for (String line : string().replace("\r", "").split("\n")) {
             if (line.isBlank()) {
                 totalItems.add(currentAmount);
                 currentAmount = 0;

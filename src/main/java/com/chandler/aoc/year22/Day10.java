@@ -13,10 +13,10 @@ import static org.apache.commons.collections4.ListUtils.partition;
 public class Day10 extends Day {
 
     public static void main(String[] args) {
-        new Day10().printParts();
+        new Day10().run();
     }
 
-    private final String[] lines = dayString().split("\r\n");
+    private final String[] lines = string().split("\r\n");
 
     @Override
     protected Object part2() {

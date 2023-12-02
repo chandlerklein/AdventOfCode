@@ -13,7 +13,7 @@ import static java.lang.Math.floor;
 public class Day07 extends Day {
 
     public static void main(String[] args) {
-        new Day07().printParts();
+        new Day07().run();
     }
 
     @Override
@@ -27,7 +27,7 @@ public class Day07 extends Day {
     }
 
     private List<Integer> getCrabPositions() {
-        return dayStream(",")
+        return stream(",")
                 .map(Integer::valueOf)
                 .toList();
     }

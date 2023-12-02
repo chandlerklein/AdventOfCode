@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 public class Day02 extends Day {
 
     public static void main(String[] args) {
-        new Day02().printParts();
+        new Day02().run();
     }
 
     @Override
@@ -25,7 +25,7 @@ public class Day02 extends Day {
     }
 
     public Stream<Command> getCommands() {
-        return dayStream().map(line -> line.split(" "))
+        return stream().map(line -> line.split(" "))
                           .map(Command::new);
     }
 

@@ -10,14 +10,14 @@ import static java.lang.Integer.parseInt;
 public class Day14 extends Day {
 
     public static void main(String[] args) {
-        new Day14().printParts();
+        new Day14().run();
     }
 
     private static int maxRow = -1;
 
     @Override
     protected Object part1() {
-        String[] lines = dayString().split("\r\n");
+        String[] lines = string().split("\r\n");
         char[][] grid = getGrid();
         parseAndDraw(lines, grid);
         return dropSand(grid, 0);
@@ -118,7 +118,7 @@ public class Day14 extends Day {
 
     @Override
     protected Object part2() {
-        String[] lines = dayString().split("\r\n");
+        String[] lines = string().split("\r\n");
         char[][] grid = getGrid();
         parseAndDraw(lines, grid);
         drawFloor(grid, maxRow + 2);

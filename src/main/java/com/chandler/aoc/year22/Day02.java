@@ -7,7 +7,7 @@ import java.util.Map;
 public class Day02 extends Day {
 
     public static void main(String[] args) {
-        new Day02().printParts();
+        new Day02().run();
     }
 
     private static final Map<String, String> shapeMappings = Map.of(
@@ -33,7 +33,7 @@ public class Day02 extends Day {
 
     @Override
     protected Object part1() {
-        return dayStream().mapToInt(line -> new Round(line).calculateScorePart1()).sum();
+        return stream().mapToInt(line -> new Round(line).calculateScorePart1()).sum();
     }
 
     private record Round(String shape, String opponentShape) {
@@ -62,7 +62,7 @@ public class Day02 extends Day {
 
     @Override
     protected Object part2() {
-        return dayStream().map(Round::new)
+        return stream().map(Round::new)
                           .map(Round::calculateScorePart2)
                           .mapToInt(Integer::intValue)
                           .sum();

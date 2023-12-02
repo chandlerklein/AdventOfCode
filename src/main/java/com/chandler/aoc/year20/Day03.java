@@ -7,10 +7,10 @@ import java.util.List;
 
 public class Day03 extends Day {
 
-    private final Object[] lines = dayStream().toArray();
+    private final Object[] lines = stream().toArray();
 
     public static void main(String[] args) {
-        new Day03().printParts();
+        new Day03().run();
     }
 
     @Override

@@ -10,12 +10,12 @@ public class Day08 extends Day {
     private static final Set<Integer> uniqueSegmentCounts = Set.of(2, 3, 4, 7);
 
     public static void main(String[] args) {
-        new Day08().printParts();
+        new Day08().run();
     }
 
     @Override
     protected Object part1() {
-        return dayStream().map(line -> line.substring(61))
+        return stream().map(line -> line.substring(61))
                           .map(outputValues -> outputValues.split(" "))
                           .flatMap(Arrays::stream)
                           .map(String::length)

@@ -12,7 +12,7 @@ import static java.lang.Character.isUpperCase;
 public class Day03 extends Day {
 
     public static void main(String[] args) {
-        new Day03().printParts();
+        new Day03().run();
     }
 
     private record Rucksack(Set<String> compartment1, Set<String> compartment2) {
@@ -30,7 +30,7 @@ public class Day03 extends Day {
 
     @Override
     protected Object part1() {
-        return dayStream().map(Rucksack::new)
+        return stream().map(Rucksack::new)
                           .map(Rucksack::getItemPriority)
                           .mapToInt(Integer::valueOf)
                           .sum();
@@ -38,7 +38,7 @@ public class Day03 extends Day {
 
     @Override
     protected Object part2() {
-        String[] lines = dayString().split("\r\n");
+        String[] lines = string().split("\r\n");
         List<Integer> priorities = new ArrayList<>();
         for (int i = 0; i < lines.length - 2; i += 3) {
             Set<String> rucksack1 = new HashSet<>(List.of(lines[i].split("")));

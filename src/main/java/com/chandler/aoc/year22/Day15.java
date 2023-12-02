@@ -2,7 +2,6 @@ package com.chandler.aoc.year22;
 
 import com.chandler.aoc.common.Day;
 
-import java.awt.Point;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -15,7 +14,7 @@ import static java.lang.Math.abs;
 public class Day15 extends Day {
 
     public static void main(String[] args) {
-        new Day15().printParts();
+        new Day15().run();
     }
 
     private boolean isPartOne;
@@ -28,7 +27,7 @@ public class Day15 extends Day {
         Set<Sensor> noBeaconsPresent = new HashSet<>();
         List<Sensor> sensors = new ArrayList<>();
 
-        String[] lines = dayString().split("\r\n");
+        String[] lines = string().split("\r\n");
 
         parseInput(lines, sensors, noBeaconsPresent);
 

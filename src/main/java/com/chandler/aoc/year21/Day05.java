@@ -13,7 +13,7 @@ import static java.lang.Math.signum;
 public class Day05 extends Day {
 
     public static void main(String[] args) {
-        new Day05().printParts();
+        new Day05().run();
     }
 
     @Override
@@ -33,7 +33,7 @@ public class Day05 extends Day {
     }
 
     private Stream<Line> getLines() {
-        return dayStream().map(str -> str.split(",| -> "))
+        return stream().map(str -> str.split(",| -> "))
                           .map(Line::parse);
     }
 

@@ -1,4 +1,6 @@
 .idea
-target
 .settings
 aoc.iml
+cookie.txt
+resources
+target
