@@ -38,17 +38,17 @@ public class Day03 extends Day {
 
     @Override
     protected Object part2() {
-        List<Integer> gearRatios = new ArrayList<>();
+        int total = 0;
 
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
                 if (arr[i][j] == '*') {
                     Map<Map.Entry<Integer, Integer>, Integer> map = new HashMap<>();
-                    gearRatios.add(getParts(arr, i, j, map));
+                    total += getParts(arr, i, j, map);
                 }
             }
         }
-        return gearRatios.stream().mapToInt(Integer::intValue).sum();
+        return total;
     }
 
     private int getParts(char[][] arr, int i, int j, Map<Map.Entry<Integer, Integer>, Integer> map) {
