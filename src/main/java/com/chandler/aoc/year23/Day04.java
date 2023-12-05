@@ -16,29 +16,23 @@ public class Day04 extends Day {
 
     @Override
     protected Object part1() {
-        return stream().mapToInt(this::getPoints).sum();
+        return stream().mapToInt(line -> (int) Math.pow(2, getMatches(line) - 1)).sum();
     }
 
     @Override
     protected Object part2() {
         int[] cards = new int[221];
-
-        String[] lines = stream().toArray(String[]::new);
-
         int i = 1;
-        for (String line : lines) {
+        int total = 0;
+
+        for (String line : stream().toArray(String[]::new)) {
             int matches = (int) getMatches(line);
             int numCards = ++cards[i];
-            IntStream.rangeClosed(i + 1, i + matches)
-                     .forEach(j -> cards[j] += numCards);
+            total += numCards;
+            IntStream.rangeClosed(i + 1, i + matches).forEach(j -> cards[j] += numCards);
             i++;
         }
-        return Arrays.stream(cards).sum();
-    }
-
-    private int getPoints(String line) {
-        double matches = getMatches(line);
-        return (int) Math.pow(2, matches - 1);
+        return total;
     }
 
     private double getMatches(String line) {
