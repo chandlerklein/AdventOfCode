@@ -37,8 +37,8 @@ public class Day04 extends Day {
 
     private double getMatches(String line) {
         String[] allNums = line.substring(10).trim().split(" \\| ");
-        var winningNums = Arrays.stream(allNums[0].split("\\s{1,2}")).collect(toSet());
-        var nums = Arrays.stream(allNums[1].split("\\s{1,2}")).collect(toSet());
+        var winningNums = Arrays.stream(allNums[0].split("\\s+")).collect(toSet());
+        var nums = Arrays.stream(allNums[1].split("\\s+")).collect(toSet());
         return Sets.intersection(winningNums, nums).size();
     }
 
