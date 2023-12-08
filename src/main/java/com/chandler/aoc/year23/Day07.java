@@ -19,27 +19,28 @@ public class Day07 extends Day {
 
     @Override
     protected Object part1() {
-        var handAndBids = getHandAndBids(false);
+        var bids = getBids(false);
 
-        return IntStream.range(0, handAndBids.size())
-                        .map(i -> handAndBids.get(i).bid() * (i + 1))
+        return IntStream.range(0, bids.size())
+                        .map(i -> bids.get(i) * (i + 1))
                         .sum();
     }
 
     @Override
     protected Object part2() {
-        var handAndBids = getHandAndBids(true);
+        var bids = getBids(true);
 
-        return IntStream.range(0, handAndBids.size())
-                        .map(i -> handAndBids.get(i).bid() * (i + 1))
+        return IntStream.range(0, bids.size())
+                        .map(i -> bids.get(i) * (i + 1))
                         .sum();
     }
 
-    private List<HandAndBid> getHandAndBids(boolean isPartTwo) {
+    private List<Integer> getBids(boolean isPartTwo) {
         return stream().map(line -> HandAndBid.from(line, isPartTwo))
                        .collect(groupingBy(HandAndBid::type))
                        .values().stream()
                        .flatMap(it -> it.stream().sorted(handAndBidComparator(isPartTwo)))
+                       .map(HandAndBid::bid)
                        .toList();
     }
 
