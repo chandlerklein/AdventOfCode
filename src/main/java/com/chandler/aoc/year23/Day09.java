@@ -1,10 +1,14 @@
 package com.chandler.aoc.year23;
 
 import com.chandler.aoc.common.Day;
+import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static com.google.common.collect.Lists.reverse;
+import static java.util.stream.Collectors.toList;
 
 public class Day09 extends Day {
 
@@ -15,25 +19,23 @@ public class Day09 extends Day {
     private final List<List<Integer>> nums = stream()
         .map(line -> Arrays.stream(line.split("\\s"))
                            .map(Integer::parseInt)
-                           .toList()).toList();
+                           .collect(toList())).toList();
 
     @Override
     protected Object part1() {
-        return nums.stream().mapToInt(it -> getResult(it, false)).sum();
+        return nums.stream().mapToInt(this::getResult).sum();
     }
 
     @Override
     protected Object part2() {
-        return nums.stream().mapToInt(it -> getResult(it, true)).sum();
+        return nums.stream().map(Lists::reverse).mapToInt(this::getResult).sum();
     }
 
-    private int getResult(List<Integer> nums, boolean isPartTwo) {
+    private int getResult(List<Integer> nums) {
         int sum = 0;
-        var firstNums = new ArrayList<Integer>();
         while (true) {
             var diffs = new ArrayList<Integer>();
             boolean allZero = true;
-            firstNums.add(nums.get(0));
             sum += nums.get(nums.size() - 1);
             for (int i = 0; i < nums.size() - 1; i++) {
                 int diff = nums.get(i + 1) - nums.get(i);
@@ -43,13 +45,7 @@ public class Day09 extends Day {
             if (allZero) break;
             nums = diffs;
         }
-        if (!isPartTwo) return sum;
-
-        int first = 0;
-        for (int i = firstNums.size() - 1; i >= 0; i--) {
-            first = firstNums.get(i) - first;
-        }
-        return first;
+        return sum;
     }
 
 }
