@@ -30,7 +30,6 @@ public class Day01 extends Day {
         var map = stream().map(str -> str.split("\\s{3}"))
                           .map(arr -> Map.entry(parseInt(arr[0]), parseInt(arr[1])))
                           .collect(toMap(Map.Entry::getKey, Map.Entry::getValue));
-
         var freq = map.values().stream().collect(groupingBy(identity(), counting()));
         return map.keySet().stream().map(it -> it * freq.getOrDefault(it, 0L)).mapToLong(Long::valueOf).sum();
     }
