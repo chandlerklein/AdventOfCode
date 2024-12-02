@@ -36,7 +36,7 @@ public abstract class Day {
 
     public String string() {
         String className = this.getClass().toString();
-        String yearDay = className.replaceAll("[a-zA-Z.]", "").trim();
+        String yearDay = className.replaceAll("[a-zA-Z.\\s]", "");
         int year = parseInt(yearDay.substring(0, 4));
         int day = parseInt(yearDay.substring(4));
 
