@@ -12,7 +12,8 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 import static java.lang.Integer.parseInt;
 import static java.net.http.HttpResponse.BodyHandlers.ofFile;
@@ -29,8 +30,12 @@ public class InputDownloader {
         CommandLineParser parser = new DefaultParser();
         CommandLine cmd = parser.parse(options, args);
 
-        int year = parseInt(cmd.getOptionValue("y", String.valueOf(LocalDate.now().getYear())));
-        int day = parseInt(cmd.getOptionValue("d", String.valueOf(LocalDate.now().getDayOfMonth())));
+        var zonedDateTime = ZonedDateTime.now(ZoneId.of("America/New_York"));
+        int currentYear = zonedDateTime.getYear();
+        int currentDay = zonedDateTime.getDayOfMonth();
+
+        int year = parseInt(cmd.getOptionValue("y", String.valueOf(currentYear)));
+        int day = parseInt(cmd.getOptionValue("d", String.valueOf(currentDay)));
         String cookie = cmd.getOptionValue("c");
 
         String uri = "https://adventofcode.com/%d/day/%d/input".formatted(year, day);
