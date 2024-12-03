@@ -40,7 +40,7 @@ public class InputDownloader {
                                      .uri(URI.create(uri))
                                      .setHeader("Content-Type", "text/plain")
                                      .setHeader("Cookie", "session=%s".formatted(cookie))
-                                     .timeout(ofSeconds(30))
+                                     .timeout(ofSeconds(5))
                                      .build();
             Path outputPath = Paths.get("src", "main", "resources", "%d-%02d.txt".formatted(year, day));
             client.send(request, ofFile(outputPath));
