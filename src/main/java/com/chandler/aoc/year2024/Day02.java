@@ -17,13 +17,13 @@ public class Day02 extends Day {
         new Day02().run();
     }
 
-    @Override protected Object part1() {
+    @Override public Object part1() {
         return stream().map(line -> Arrays.stream(line.split("\\s")).mapToInt(Integer::parseInt).boxed().toList())
                        .filter(this::isSafePart1)
                        .count();
     }
 
-    @Override protected Object part2() {
+    @Override public Object part2() {
         return stream().map(line -> Arrays.stream(line.split("\\s")).mapToInt(Integer::parseInt).boxed().toList())
                        .filter(this::isSafePart2)
                        .count();

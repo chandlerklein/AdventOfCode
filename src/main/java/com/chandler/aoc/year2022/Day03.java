@@ -29,7 +29,7 @@ public class Day03 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         return stream().map(Rucksack::new)
                           .map(Rucksack::getItemPriority)
                           .mapToInt(Integer::valueOf)
@@ -37,7 +37,7 @@ public class Day03 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         String[] lines = string().split("\r\n");
         List<Integer> priorities = new ArrayList<>();
         for (int i = 0; i < lines.length - 2; i += 3) {

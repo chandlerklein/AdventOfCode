@@ -42,13 +42,13 @@ public class Day11 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         isPartOne = true;
         return getResult(NUM_ROUNDS_PART_1);
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         isPartOne = false;
         return getResult(NUM_ROUNDS_PART_2);
     }

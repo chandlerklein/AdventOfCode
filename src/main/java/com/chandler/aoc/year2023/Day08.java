@@ -23,14 +23,14 @@ class Day08 extends Day {
                 .collect(toMap(Node::label, identity()));
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         var instructions = nodes.get("instructions").left();
 
         return getNumSteps(nodes.get("AAA"), instructions, node -> !node.label().equalsIgnoreCase("ZZZ"));
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         var instructions = nodes.get("instructions").left();
 
         return nodes.entrySet().stream()

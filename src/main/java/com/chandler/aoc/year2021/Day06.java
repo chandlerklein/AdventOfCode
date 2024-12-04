@@ -17,7 +17,7 @@ public class Day06 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         var lanternFish =
                 stream(",")
                         .map(Integer::valueOf)
@@ -27,7 +27,7 @@ public class Day06 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         TreeMap<Integer, Long> lanternFishNum =
                 stream(",")
                         .collect(

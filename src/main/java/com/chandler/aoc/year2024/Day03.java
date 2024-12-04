@@ -13,7 +13,7 @@ public class Day03 extends Day {
         new Day03().run();
     }
 
-    @Override protected Object part1() {
+    @Override public Object part1() {
         return compile("mul\\((\\d+),(\\d+)\\)")
             .matcher(string()).results()
             .map(result -> parseLong(result.group(1)) * parseLong(result.group(2)))
@@ -21,7 +21,7 @@ public class Day03 extends Day {
             .sum();
     }
 
-    @Override protected Object part2() {
+    @Override public Object part2() {
         var enabled = new AtomicBoolean(true);
         return compile("mul\\((\\d+),(\\d+)\\)|do(n't)?\\(\\)")
             .matcher(string()).results()

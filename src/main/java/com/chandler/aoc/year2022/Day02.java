@@ -32,7 +32,7 @@ public class Day02 extends Day {
     );
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         return stream().mapToInt(line -> new Round(line).calculateScorePart1()).sum();
     }
 
@@ -61,7 +61,7 @@ public class Day02 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         return stream().map(Round::new)
                           .map(Round::calculateScorePart2)
                           .mapToInt(Integer::intValue)

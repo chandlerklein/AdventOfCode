@@ -12,7 +12,7 @@ public class Day02 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         return stream().map(Game::from)
                        .filter(Game::isPossible)
                        .mapToInt(Game::id)
@@ -20,7 +20,7 @@ public class Day02 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         return stream().map(Game::from)
                        .mapToInt(Game::getPower)
                        .sum();

@@ -11,7 +11,7 @@ public class Day03 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         String[] strings = stream().toArray(String[]::new);
 
         int zeroCount = 0;
@@ -35,7 +35,7 @@ public class Day03 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         // nope 🤠
         return null;
     }

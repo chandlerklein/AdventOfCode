@@ -18,12 +18,12 @@ public class Day04 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         return getBingoGame().getFirstPlaceScore();
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         return getBingoGame().getLastPlaceScore();
     }
 

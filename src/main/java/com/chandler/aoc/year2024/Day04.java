@@ -12,7 +12,7 @@ public class Day04 extends Day {
     int[][] directions = { { -1, 0 }, { -1, 1 }, { 0, 1 }, { 1, 1 }, { 1, 0 }, { 1, -1 }, { 0, -1 }, { -1, -1 } };
     char[] xmas = { 'X', 'M', 'A', 'S' };
 
-    @Override protected Object part1() {
+    @Override public Object part1() {
         int count = 0;
         for (int r = 0; r < grid.length; r++) {
             for (int c = 0; c < grid[0].length; c++) {
@@ -33,7 +33,7 @@ public class Day04 extends Day {
         return count;
     }
 
-    @Override protected Object part2() {
+    @Override public Object part2() {
         int count = 0;
         for (int r = 0; r < grid.length; r++) {
             for (int c = 0; c < grid[0].length; c++) {

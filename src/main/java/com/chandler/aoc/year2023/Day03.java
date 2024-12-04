@@ -23,7 +23,7 @@ public class Day03 extends Day {
         { -1, -1 }, { -1, 0 }, { -1, 1 }, { 0, -1 }, { 0, 1 }, { 1, -1 }, { 1, 0 }, { 1, 1 } };
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         Map<Map.Entry<Integer, Integer>, Integer> map = new HashMap<>();
 
         for (int i = 0; i < arr.length; i++) {
@@ -35,7 +35,7 @@ public class Day03 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         int total = 0;
 
         for (int i = 0; i < arr.length; i++) {

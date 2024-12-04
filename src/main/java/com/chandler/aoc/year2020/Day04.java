@@ -14,7 +14,7 @@ public class Day04 extends Day {
     private static final Set<String> requiredFields = Set.of("byr:", "iyr:", "eyr:", "hgt:", "hcl:", "ecl:", "pid:");
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         return getNumInvalidPassports();
     }
 
@@ -27,7 +27,7 @@ public class Day04 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         return null;
     }
 }

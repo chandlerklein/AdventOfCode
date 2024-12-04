@@ -22,7 +22,7 @@ public class Day15 extends Day {
     private record Sensor(int x, int y, int distance) {}
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         this.isPartOne = true;
         Set<Sensor> noBeaconsPresent = new HashSet<>();
         List<Sensor> sensors = new ArrayList<>();
@@ -75,7 +75,7 @@ public class Day15 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         return null;
     }
 

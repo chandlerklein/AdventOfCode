@@ -16,7 +16,7 @@ public class Day14 extends Day {
     private static int maxRow = -1;
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         String[] lines = string().split("\r\n");
         char[][] grid = getGrid();
         parseAndDraw(lines, grid);
@@ -117,7 +117,7 @@ public class Day14 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         String[] lines = string().split("\r\n");
         char[][] grid = getGrid();
         parseAndDraw(lines, grid);

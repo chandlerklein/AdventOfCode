@@ -21,7 +21,7 @@ public class Day05 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         List<Deque<Character>> deques = new ArrayList<>();
 
         String[] lines = string().split("\r\n");
@@ -97,7 +97,7 @@ public class Day05 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         List<Deque<Character>> deques = new ArrayList<>();
 
         String[] lines = string().split("\r\n");

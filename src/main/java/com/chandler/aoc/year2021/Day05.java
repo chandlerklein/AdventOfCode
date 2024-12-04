@@ -17,7 +17,7 @@ public class Day05 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         Map<Point, Integer> frequency = new HashMap<>();
         getLines().filter(Line::isHorizontalOrVertical)
                   .forEach(line -> addPoints(frequency, line));
@@ -25,7 +25,7 @@ public class Day05 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         Map<Point, Integer> frequency = new HashMap<>();
         getLines().filter(Line::isHorizontalOrVerticalOrDiagonal)
                   .forEach(line -> addPoints(frequency, line));

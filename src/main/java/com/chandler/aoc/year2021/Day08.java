@@ -14,7 +14,7 @@ public class Day08 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         return stream().map(line -> line.substring(61))
                           .map(outputValues -> outputValues.split(" "))
                           .flatMap(Arrays::stream)
@@ -24,7 +24,7 @@ public class Day08 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         // nope 🤠
         return null;
     }

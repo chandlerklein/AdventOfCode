@@ -11,14 +11,14 @@ public class Day02 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         var submarine = new Submarine();
         getCommands().forEach(submarine::move);
         return calculateResult(submarine);
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         var submarine = new Submarine();
         getCommands().forEach(submarine::movePartTwo);
         return calculateResult(submarine);

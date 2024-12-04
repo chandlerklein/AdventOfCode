@@ -15,7 +15,7 @@ public class Day01 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         List<Integer> totalItems = new ArrayList<>();
         int currentAmount = 0;
         for (String line : string().replace("\r", "").split("\n")) {
@@ -33,7 +33,7 @@ public class Day01 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         PriorityQueue<Integer> totalItems = new PriorityQueue<>(Collections.reverseOrder());
         int currentAmount = 0;
         for (String line : string().replace("\r", "").split("\n")) {

@@ -21,7 +21,7 @@ public class Day06 extends Day {
     private final List<String> lines = stream().toList();
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         return getAllWaysToWin(digits.matcher(lines.get(0)).results().map(MatchResult::group).map(Long::parseLong).toList(),
                                digits.matcher(lines.get(1)).results().map(MatchResult::group).map(Long::parseLong).toList())
             .reduce(Math::multiplyExact)
@@ -29,7 +29,7 @@ public class Day06 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         return getAllWaysToWin(List.of(parseLong(digits.matcher(lines.get(0)).results().map(MatchResult::group).collect(joining()))),
                                List.of(parseLong(digits.matcher(lines.get(1)).results().map(MatchResult::group).collect(joining()))))
             .findFirst().orElseThrow();

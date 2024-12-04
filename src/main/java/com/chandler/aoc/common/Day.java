@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 import static java.lang.Integer.parseInt;
+import static java.lang.System.lineSeparator;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 public abstract class Day {
@@ -22,12 +23,12 @@ public abstract class Day {
         log.info(part2Result == null ? "PART 2 - UNCOMPLETED" : "PART 2: %n%s%n".formatted(part2Result));
     }
 
-    protected Object part1() { return null; }
+    public abstract Object part1();
 
-    protected Object part2() { return null; }
+    public abstract Object part2();
 
     public Stream<String> stream() {
-        return Arrays.stream(string().split("\n"));
+        return Arrays.stream(string().split(lineSeparator()));
     }
 
     public Stream<String> stream(String delimiter) {

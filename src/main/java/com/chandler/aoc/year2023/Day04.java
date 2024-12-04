@@ -15,12 +15,12 @@ public class Day04 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         return stream().mapToInt(line -> (int) Math.pow(2, getMatches(line) - 1)).sum();
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         int[] cards = new int[221];
         int i = 1;
         int total = 0;

@@ -23,13 +23,13 @@ public class Day10 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         return stream().map(line -> getScore(line, true)).mapToLong(l -> l)
                           .sum();
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         List<Long> scores = stream().map(line -> getScore(line, false))
                                        .filter(Objects::nonNull)
                                        .sorted()

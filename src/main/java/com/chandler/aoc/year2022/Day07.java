@@ -24,7 +24,7 @@ public class Day07 extends Day {
     private record Directory(String directoryName, List<File> files) {}
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         String[] lines = string().split("\r\n");
 
         processInput(lines);
@@ -86,7 +86,7 @@ public class Day07 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         String[] lines = string().split("\r\n");
         directories.clear();
 

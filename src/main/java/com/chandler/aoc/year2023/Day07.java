@@ -18,7 +18,7 @@ public class Day07 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         var bids = getBids(false);
 
         return IntStream.range(0, bids.size())
@@ -27,7 +27,7 @@ public class Day07 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         var bids = getBids(true);
 
         return IntStream.range(0, bids.size())

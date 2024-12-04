@@ -23,12 +23,12 @@ public class Day12 extends Day {
     private final Set<String> visited = new HashSet<>();
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         return getResult(new int[]{20, 0});
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         return getEntrances(map).stream()
                                 .map(this::getResult)
                                 .min(Integer::compareTo)

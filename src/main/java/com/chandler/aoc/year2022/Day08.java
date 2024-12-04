@@ -17,7 +17,7 @@ public class Day08 extends Day {
     private static final int[][] DIRECTIONS = new int[][]{ { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         String[] lines = string().split("\r\n");
         int numberVisible = 0;
 
@@ -57,7 +57,7 @@ public class Day08 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         String[] lines = string().split("\r\n");
         int maxScore = -1;
 

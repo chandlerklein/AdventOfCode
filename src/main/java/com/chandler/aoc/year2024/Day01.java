@@ -17,7 +17,7 @@ public class Day01 extends Day {
         new Day01().run();
     }
 
-    @Override protected Object part1() {
+    @Override public Object part1() {
         var map = stream().map(str -> str.split("\\s{3}"))
                           .map(arr -> Map.entry(parseInt(arr[0]), parseInt(arr[1])))
                           .collect(toMap(Map.Entry::getKey, Map.Entry::getValue));
@@ -26,7 +26,7 @@ public class Day01 extends Day {
         return IntStream.range(0, list1.size()).map(i -> Math.abs(list1.get(i) - list2.get(i))).sum();
     }
 
-    @Override protected Object part2() {
+    @Override public Object part2() {
         var map = stream().map(str -> str.split("\\s{3}"))
                           .map(arr -> Map.entry(parseInt(arr[0]), parseInt(arr[1])))
                           .collect(toMap(Map.Entry::getKey, Map.Entry::getValue));

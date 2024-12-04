@@ -15,7 +15,7 @@ public class Day01 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         return stream().map(it -> it.replaceAll("\\D", ""))
                        .map(it -> it.charAt(0) + valueOf(it.charAt(it.length() - 1)))
                        .mapToInt(Integer::parseInt)
@@ -23,7 +23,7 @@ public class Day01 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         return stream().map(this::getFirstAndLastDigit)
                        .mapToInt(Integer::parseInt)
                        .sum();

@@ -20,7 +20,7 @@ public class Day10 extends Day {
     private final String[] lines = string().split("\r\n");
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         int x = 1;
         int crtPosition = 0;
         List<Character> characters = new ArrayList<>();
@@ -40,7 +40,7 @@ public class Day10 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         return null;
     }
 }

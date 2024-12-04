@@ -16,7 +16,7 @@ public class Day03 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         final char tree = '#';
         int hits = 0;
         int x = 0;
@@ -35,7 +35,7 @@ public class Day03 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         return Stream
             .of(entry(1, 1),
                 entry(3, 1),

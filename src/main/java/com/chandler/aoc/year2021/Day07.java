@@ -17,12 +17,12 @@ public class Day07 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         return getFuelCost(getCrabPositions());
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         return getFuelCostPartTwo(getCrabPositions());
     }
 

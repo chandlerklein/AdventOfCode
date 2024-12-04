@@ -31,14 +31,14 @@ public class Day04 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         return stream().map(Assignment::new)
                           .filter(Assignment::doesOverlapPart1)
                           .count();
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         return stream().map(Assignment::new)
                           .filter(Assignment::doesOverlapPart2)
                           .count();

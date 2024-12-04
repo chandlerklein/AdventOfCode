@@ -21,7 +21,7 @@ public class Day09 extends Day {
     );
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         String[] input = string().split("\r\n");
 
         int[] head = new int[]{0, 0};
@@ -64,7 +64,7 @@ public class Day09 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         return null;
     }
 }

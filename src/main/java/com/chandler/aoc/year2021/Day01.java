@@ -9,7 +9,7 @@ public class Day01 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         long[] nums = stream().mapToLong(Long::parseLong).toArray();
         int result = 0;
 
@@ -22,7 +22,7 @@ public class Day01 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         long[] nums = stream().mapToLong(Long::parseLong).toArray();
         int result = 0;
 

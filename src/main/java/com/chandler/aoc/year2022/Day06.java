@@ -26,12 +26,12 @@ public class Day06 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         return getStartOfMessageMarker(4);
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         return getStartOfMessageMarker(14);
     }
 }

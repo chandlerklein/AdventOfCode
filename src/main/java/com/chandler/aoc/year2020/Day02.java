@@ -16,12 +16,12 @@ public class Day02 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         return getPolicies().filter(Policy::isValidPart1).count();
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         return getPolicies().filter(Policy::isValidPart2).count();
     }
 

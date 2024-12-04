@@ -21,12 +21,12 @@ public class Day09 extends Day {
                            .collect(toList())).toList();
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         return nums.stream().mapToInt(this::getResult).sum();
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         return nums.stream().map(Lists::reverse).mapToInt(this::getResult).sum();
     }
 

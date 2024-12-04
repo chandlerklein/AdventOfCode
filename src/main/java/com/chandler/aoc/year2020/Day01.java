@@ -14,7 +14,7 @@ public class Day01 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         long[] nums = stream().mapToLong(Long::parseLong).toArray();
         return Arrays.stream(nums)
                      .flatMap(a -> Arrays.stream(nums)
@@ -25,7 +25,7 @@ public class Day01 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         long[] nums = stream().mapToLong(Long::parseLong).toArray();
         int target = 2020;
 

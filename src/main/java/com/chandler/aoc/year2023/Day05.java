@@ -21,7 +21,7 @@ public class Day05 extends Day {
     }
 
     @Override
-    protected Object part1() {
+    public Object part1() {
         List<String> groups = Pattern.compile("\n\n").splitAsStream(string()).toList();
 
         Pattern mappingPattern = Pattern.compile("(\\w+)-to-(\\w+)");
@@ -61,7 +61,7 @@ public class Day05 extends Day {
     }
 
     @Override
-    protected Object part2() {
+    public Object part2() {
         // wtf 🤠
         return null;
     }
