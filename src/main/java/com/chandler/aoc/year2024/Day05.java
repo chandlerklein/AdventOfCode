@@ -36,7 +36,8 @@ public class Day05 extends Day {
                .map(m -> entry(parseInt(m.group(1)), parseInt(m.group(2))))
                .collect(groupingBy(Map.Entry::getKey, mapping(Map.Entry::getValue, toSet())));
 
-    Comparator<Integer> comparator = (page1, page2) -> pages.getOrDefault(page1, emptySet()).contains(page2) ? 1 : -1;
+    private final Comparator<Integer> comparator = (page1, page2) ->
+        pages.getOrDefault(page1, emptySet()).contains(page2) ? 1 : -1;
 
     @Override public Object part1() {
         return updates.stream().filter(update -> update.stream().gather(windowSliding(2)).allMatch(
