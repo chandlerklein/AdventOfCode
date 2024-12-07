@@ -4,13 +4,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 import static java.lang.Integer.parseInt;
-import static java.lang.System.lineSeparator;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 public abstract class Day {
@@ -28,7 +26,11 @@ public abstract class Day {
     public abstract Object part2();
 
     public Stream<String> stream() {
-        return Arrays.stream(string().split(lineSeparator()));
+        try {
+            return Files.lines(getFilePath());
+        } catch (IOException e) {
+            throw new IllegalStateException("Unable to get file lines stream");
+        }
     }
 
     public Stream<String> stream(String delimiter) {
@@ -36,6 +38,15 @@ public abstract class Day {
     }
 
     public String string() {
+        Path filePath = getFilePath();
+        try {
+            return Files.readString(filePath, UTF_8);
+        } catch (IOException e) {
+            throw new IllegalStateException("Failed to read input file");
+        }
+    }
+
+    private Path getFilePath() {
         String className = this.getClass().toString();
         String yearDay = className.replaceAll("[a-zA-Z.\\s]", "");
         int year = parseInt(yearDay.substring(0, 4));
@@ -46,11 +57,7 @@ public abstract class Day {
         if (!Files.exists(filePath)) {
             throw new IllegalArgumentException("Input file doesn't exist");
         }
-        try {
-            return Files.readString(filePath, UTF_8);
-        } catch (IOException e) {
-            throw new IllegalStateException("Failed to read input file");
-        }
+        return filePath;
     }
 
 }
