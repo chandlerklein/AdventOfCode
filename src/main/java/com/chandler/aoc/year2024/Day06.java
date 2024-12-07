@@ -33,8 +33,6 @@ public class Day06 extends Day {
     }
 
     @Override public Object part2() {
-        long startTime = System.currentTimeMillis();
-
         part1(); // load guard path in positions map
         var start = findStart().orElseThrow();
 
@@ -57,9 +55,6 @@ public class Day06 extends Day {
             }
             grid[obstacle.x()][obstacle.y()] = '.'; // reset obstacle
         }
-        long endTime = System.currentTimeMillis();
-        System.out.println("Total time: " + (endTime - startTime) + "ms");
-
         return count;
     }
 
