@@ -45,7 +45,6 @@ public class Day08 extends Day {
             .map(pair -> getAntinodes(pair.toArray(Point[]::new)))
             .flatMap(Collection::stream)
             .distinct()
-            .filter(this::isInGrid)
             .count();
     }
 
